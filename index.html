@@ -13,9 +13,13 @@
 
 <body>
     <div id="app">
-        <!-- <select name="" id="users">
-            <option value=""></option>
-        </select> -->
+        <h1>Liste des utilisateurs</h1>
+        <p v-if="users !== '' ">Il y a {{ users.length }} inscrits dans l'application</p>
+        <select id="users">
+            <option v-for="user of users" :id="user.id">{{ user.name }}</option>
+        </select>
+        <user-data></user-data>
+
     </div>
 
 </body>
