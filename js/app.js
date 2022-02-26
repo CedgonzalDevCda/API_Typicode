@@ -20,6 +20,7 @@ let vm = new Vue({
     el: '#app',
     data: {
         user:'',
+        tasks:[],
         userObj:'',
         userName: '',
         userId: '',
@@ -55,7 +56,13 @@ let vm = new Vue({
             let response = await fetch('https://jsonplaceholder.typicode.com/users/' + this.userId)
             let user = await 
             response.json()
-            this.user = user 
+            this.user = user
+        },
+        displayTask: async function () {
+            let response = await fetch(`https://jsonplaceholder.typicode.com/users/${this.userId}/todos/`)
+            let tasks = await 
+            response.json()
+            this.tasks = tasks
         }
     }
 });
